@@ -44,11 +44,11 @@
 
       <h1><a id="user-content-header-1" class="anchor" href="#header-1" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color= '#C05A38' >Methodology</font></h1>
 
-      <h2><a id="user-content-header-1" class="anchor" href="#header-1" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color= '#C05A38' >Components</font></h2>
+      <h2><a id="user-content-header-1" class="anchor" href="#header-1" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color= '#C05A38' >1. Components</font></h2>
 
       <p>The program first splits the inputted hip-hop song into its percussive and harmonic components.  Cultural Remix analyzes the percussive component in order to compute a compatible South Asian background for the harmonics.  As such, we used Librosa's <a href="https://librosa.github.io/librosa/generated/librosa.decompose.hpss.html">harmonic percussive source separation </a> to partition the hip-hop song into its two components.
 
-      <h2><a id="user-content-header-1" class="anchor" href="#header-1" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color= '#C05A38' >Segmentation</font></h2>
+      <h2><a id="user-content-header-1" class="anchor" href="#header-1" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color= '#C05A38' >2. Segmentation</font></h2>
 
       <p> The next step is segmenting each Indian song in the dataset and the hip-hop song's percussive component based on distinguishing acoustic traits.</p>
 
@@ -60,7 +60,7 @@
 
       <p>We then compute the beat indices that correlate to the calculated time indices, and grab the corresponding beat segments as determined by Librosa's <a href="https://librosa.github.io/librosa/generated/librosa.beat.beat_track.html">beat tracker</a>.  Using these, we extract and pickle the segmented music samples. </p>
 
-      <h2><a id="user-content-header-1" class="anchor" href="#header-1" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color= '#C05A38' >Determining Similarity</font></h2>
+      <h2><a id="user-content-header-1" class="anchor" href="#header-1" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color= '#C05A38' >3. Determining Similarity</font></h2>
 
       <p>We then compare and select the most similar Indian segment for each hip-hop segment. </p>
 
@@ -78,16 +78,25 @@
 
       <h4><a id="user-content-header-1" class="anchor" href="#header-1" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color= '#C05A38' >Cross Similarity Matrix</font></h4>
 
-      <p>We first attempted segment-wise comparison by calculating the cross-similarity matrix for each pair of segments.  We summed the trace of each given cross-similarity matrix, using this value as the base of our similarity measure. We then looked to maximize the sum of the trace, and selected the Indian segment that produced a cross-similarity matrix with the greatest summed trace value.  However, because the segments are at varying pitches, the diagonal trace was not necessarily the point of greatest similarity (depicted below).  As such, this similarity measure was not suitable for cross comparison given our data. </p>
-      <p style="text-align:center"><img src="images/csm.png" width="400" height="400px"/></p>
+      <p>We first attempted segment-wise comparison by calculating the cross-similarity matrix for each pair of segments.  We summed the trace of each given cross-similarity matrix, using this value as the base of our similarity measure. We then looked to maximize the sum of the trace, and selected the Indian segment that produced a cross-similarity matrix with the greatest summed trace value.  However, because the segments are at varying tempos, the diagonal trace was not necessarily the point of greatest similarity (depicted below).  As such, this similarity measure was not suitable for cross comparison given our data. </p>
+      <p style="text-align:center"><img src="images/csm.png" width="350" height="350px"/></p>
 
       <h4><a id="user-content-header-1" class="anchor" href="#header-1" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color= '#C05A38' >Fast DTW</font></h4>
 
-      <h2><a id="user-content-header-1" class="anchor" href="#header-1" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color= '#C05A38' >Finishing Touches</font></h2>
+      <p> As a result, Cultural Remix utilizes <a href="http://cs.fit.edu/~pkc/papers/tdm04.pdf">Dynamic Time Warping</a> (DTW) to measure the similarity between two music segments.  DTW is an algorithm designed to assess the similarity of sequences with different speeds.  We used the built-in Python package <a href="https://pypi.python.org/pypi/fastdtw">fastdtw</a>, which outputs the distance between two sequences using DTW and Euclidean distance.  Our program selects the Indian segment with the lowest fastdtw distance from the given hip-hop segment.  An added benefit of this approach is that it runs in linear time, significantly decreasing the overall runtime.
+
+      <h2><a id="user-content-header-1" class="anchor" href="#header-1" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color= '#C05A38' >4. Finishing Touches</font></h2>
+
+      <p>We now convert these selected segments into a continuous, remixed song.</p>
 
       <h3><a id="user-content-header-1" class="anchor" href="#header-1" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color= '#C05A38' >Time Stretching and Alignment</font></h3>
 
+      <p> Because the selected Indian segments do not necessarily match the length of the corresponding hip-hop segments, our program extends/trims the Indian segements accordingly.  After doing so, the segments are concatenated to create a continuous background, aligned time-wise with the original song.
+
+
       <h3><a id="user-content-header-1" class="anchor" href="#header-1" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color= '#C05A38' >Overlaying the Harmonics</font></h3>
+
+      <p>The final step of the process is overlaying the hip-hop song's harmonic component on the generated Indian percussive background.  The volume of the background is decreased such that the vocals can be distinguished, and then this combination is outputted as the final remix.</p>
 
       <h1><a id="user-content-header-1" class="anchor" href="#header-1" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color= '#C05A38' >Results</font></h1>
 
