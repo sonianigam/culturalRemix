@@ -16,6 +16,7 @@
       <a href="https://github.com/sonianigam/culturalRemix" class="btn">View on GitHub</a>
       <a href="https://github.com/sonianigam/culturalRemix/zipball/master" class="btn">Download .zip</a>
       <a href="https://github.com/sonianigam/culturalRemix/tarball/master" class="btn">Download .tar.gz</a>
+      <a href="#changethis" class="btn">Download Report</a>
     </section>
 
     <section class="main-content">
@@ -42,6 +43,48 @@
 
 
       <h1><a id="user-content-header-1" class="anchor" href="#header-1" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color= '#C05A38' >Methodology</font></h1>
+
+      <h2><a id="user-content-header-1" class="anchor" href="#header-1" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color= '#C05A38' >Components</font></h2>
+
+      <p>The program first splits the inputted hip-hop song into its percussive and harmonic components.  Cultural Remix analyzes the percussive component in order to compute a compatible South Asian background for the harmonics.  As such, we used Librosa's <a href="https://librosa.github.io/librosa/generated/librosa.decompose.hpss.html">harmonic percussive source separation </a> to partition the hip-hop song into its two components.
+
+      <h2><a id="user-content-header-1" class="anchor" href="#header-1" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color= '#C05A38' >Segmentation</font></h2>
+
+      <p> The next step is segmenting each Indian song in the dataset and the hip-hop song's percussive component based on distinguishing acoustic traits.</p>
+
+      <h3><a id="user-content-header-1" class="anchor" href="#header-1" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color= '#C05A38' >Finding Boundaries with MSAF</font></h3>
+
+      <p>The program uses the <a href="http://pythonhosted.org/msaf/index.html">MSAF </a>library to process each file, computing and outputting the time indices that correlate to the audio segments' boundaries as determined by the Checkerboard Foot algorithm.  We then merge any consecutive segments that are too small based on a threshold to ensure better flow. </p>
+
+      <h3><a id="user-content-header-1" class="anchor" href="#header-1" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color= '#C05A38' >Music Samples</font></h3>
+
+      <p>We then compute the beat indices that correlate to the calculated time indices, and grab the corresponding beat segments as determined by Librosa's <a href="https://librosa.github.io/librosa/generated/librosa.beat.beat_track.html">beat tracker</a>.  Using these, we extract and pickle the segmented music samples. </p>
+
+      <h2><a id="user-content-header-1" class="anchor" href="#header-1" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color= '#C05A38' >Determining Similarity</font></h2>
+
+      <p>We then compare and select the most similar Indian segment for each hip-hop segment. </p>
+
+
+      <h3><a id="user-content-header-1" class="anchor" href="#header-1" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color= '#C05A38' >Generating Spectrograms</font></h3>
+
+      <p>As a preprocessing step, the program converts each segmented music sample into a spectrogram.  We then utilize one of the similarity measures below to conduct segment-wise spectrogram comparison.  For visualization purposes, below are three different audio segments' spectrograms.  Clearly, the segments have differing acoustic patterns.</p>
+
+      <img src="images/spect1.png"/>
+      <img src="images/spect2.png"/>
+      <img src="images/spect3.png"/>
+
+
+      <h3><a id="user-content-header-1" class="anchor" href="#header-1" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color= '#C05A38' >Similarity Measures</font></h3>
+
+      <h4><a id="user-content-header-1" class="anchor" href="#header-1" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color= '#C05A38' >Cross Similarity Matrix</font></h4>
+
+      <h4><a id="user-content-header-1" class="anchor" href="#header-1" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color= '#C05A38' >Fast DTW</font></h4>
+
+      <h2><a id="user-content-header-1" class="anchor" href="#header-1" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color= '#C05A38' >Finishing Touches</font></h2>
+
+      <h3><a id="user-content-header-1" class="anchor" href="#header-1" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color= '#C05A38' >Time Stretching and Alignment</font></h3>
+
+      <h3><a id="user-content-header-1" class="anchor" href="#header-1" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color= '#C05A38' >Overlaying the Harmonics</font></h3>
 
       <h1><a id="user-content-header-1" class="anchor" href="#header-1" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color= '#C05A38' >Results</font></h1>
 
