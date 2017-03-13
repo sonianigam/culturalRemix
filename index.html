@@ -78,6 +78,9 @@
 
       <h4><a id="user-content-header-1" class="anchor" href="#header-1" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color= '#C05A38' >Cross Similarity Matrix</font></h4>
 
+      <p>We first attempted segment-wise comparison by calculating the cross-similarity matrix for each pair of segments.  We summed the trace of each given cross-similarity matrix, using this value as the base of our similarity measure. We then looked to maximize the sum of the trace, and selected the Indian segment that produced a cross-similarity matrix with the greatest summed trace value.  However, because the segments are at varying pitches, the diagonal trace was not necessarily the point of greatest similarity (depicted below).  As such, this similarity measure was not suitable for cross comparison given our data. </p>
+      <p style="text-align:center"><img src="images/csm.png" width="400" height="400px"/></p>
+
       <h4><a id="user-content-header-1" class="anchor" href="#header-1" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color= '#C05A38' >Fast DTW</font></h4>
 
       <h2><a id="user-content-header-1" class="anchor" href="#header-1" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color= '#C05A38' >Finishing Touches</font></h2>
