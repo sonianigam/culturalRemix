@@ -41,6 +41,8 @@
 
       <p>Cultural Remix utilizes a set of handpicked Indian beats.  There are 24 songs within the data set that produce 104 distinct beat segments (see segmentation in methodology), ranging from traditional Hindi film music to upbeat, modern bhangra.  We would like to thank <a href="https://www.facebook.com/officialvgo">Vissagan Gopalakrishnan (VGo)</a> for contributing several instrumentals to this project.</p>
 
+      <p>To build our dataset, we pulled different beats from a wide array of online sources including youtube, soundcloud, and audiomack. Furthermore, we wanted to ensure that we were obtaining beats that were not simply traditional bhangra beats, but were still in the category of indain beats. In order to do this, we pulled various instrumentals of popular indian songs and performed our segmenting (described below) to add additional beats into our dataset. With this automated process, we can now take any instrumental of a song and add the various beats it encompasses into our dataset.</p>
+
 
       <h1><a id="user-content-header-1" class="anchor" href="#header-1" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color= '#C05A38' >Methodology</font></h1>
 
@@ -127,9 +129,18 @@
      
 
       <h1><a id="user-content-header-1" class="anchor" href="#header-1" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color= '#C05A38' >Improvements</font></h1>
+      <p>In the future, there are several improvements that can better our program. The first is the separation of vocals from the instrumental aspect of the song. Currently, modern day dj's use Audacity and it has a built in function to strip the vocals. Unfortunately, there is no extension to Python that links it to audacity. In python we tried Repet and harmonic/percussive separation. When building our program, we found that harmonic/percussive separation was a little better, but still far away from the quality that Audacity produces. To combat this we can ask the user to input 2 files. One file can be the vocals, and the other can be the instrumental. Another method to improve this is to come up with a new technology that does a more improved split between vocals/beats.</p>
+
+      <p>Another improvement our team can implement is to develop an interface for our program. Currently, we have run it through Jupyter, but it would be better to have an online web application that allows the user to upload two files and they can then download the "cultural remix" of their inputted song. </p>
+
+      <p>When we determine which indian beat to replace the original beat with, we compute a similarity measure and we use that to determine which beat is the most similar. It would be beneficial to store the second/third most similar beat and if the user does not like a certain beat of the song, they can be prompted with an option to switch one of the beats to the next most similar beat. This will allow them to customize their remix to their liking. </p>
+
 
       <h1><a id="user-content-header-1" class="anchor" href="#header-1" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color= '#C05A38' >Conclusion</font></h1>
 
+      <p>In conclusion, our cultural remix project produces an indian version of any inputted song. The program can successfully split the harmonic and percussive elements of the song, segment the song based on different beat structures, overlay similar indian beats onto the harmonic element of the song, and output a new cultural remix of the inputted song. In order to measure the success of our program, we surveyed random people at Northwestern who traditionally listen to indian remixes. The biggest point of feedback was audio quality and the quality of the vocals. After explaining to them our vision of improvement - as specified above - 80% of users claimed that certain parts of the remixes were comparable/if not better than current DJ material.</p>
+      
+      <p>Furthermore, we approached the captains of a couple dance teams on campus to determine if they would use our program to test different mixes for their show and there was an unanimous yes across the board. They claimed that if the audio was improved, our program gave them a clear picture as to what an indian version of a song would sound like before they have to go to their DJ to obtain a sample of the song. This would save them time in communication with the DJ and effort for actually creating a mix when the mix might not be used at all. </p>
 
     </section>
 
