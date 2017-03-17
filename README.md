@@ -32,3 +32,8 @@ The program will output the percussive element of the song titled "percussive_so
 
 Lastly, when running the program the first time, the program will output two pickled files. The program will output indianSegments.pickle and indianSpectrograms.pickle. These pickle files will allow the program to run significantly faster after the first run. 
 
+## Website
+You can find a more detailed version of our project at the link below. Our final presentation can also be located here. 
+
+link: https://sonianigam.github.io/culturalRemix/
+
