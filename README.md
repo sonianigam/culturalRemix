@@ -2,9 +2,7 @@
 EECS 352 Final Project
 Created by: Sonia Nigam and Amar Shah
 
-## installing
-
-<!-- ##Installing
+## Installing
 The following dependencies need to be installed via command line to run our script.
 MSAF <br />
 pickle <br />
@@ -13,22 +11,22 @@ scipy <br />
 fastdtw <br />
 sklearn <br />
 
-##Run 
+## Run 
 jupyter notebook culturalRemix.ipynb
 
-##File Hierarchy
+## File Hierarchy
 This script runs under the assumption that the user has installed all the packages above. In addition the link below allows the user to download our Indian Beats Database. The user can have their own Beats Database, but for the program to run, their must be a folder called "BeatsDatabase" with all of the indian beats in it. 
 
 Furthermore, the user must have a folder called "HipHop" containing any song they would like to obtain a cultural remix of. 
 
-##Input
+## Input
 The song name is hardcoded in the program. You can see in the third input cell of the jupyter notebook the user can type which song from their HipHop folder that they want to input into the program. 
 
 
-##Output
+## Output
 The program will output a final indian remix of the inputted song. The user has the option to use a wavwrite function to download the song
 
 The program will output the percussive element of the song titled "percussive_song.mp3" in the culturalRemix Folder
 
-Lastly, when running the program the first time, the program will output two pickled files. The program will output indianSegments.pickle and indianSpectrograms.pickle. These pickle files will allow the program to run significantly faster after the first run.  -->
+Lastly, when running the program the first time, the program will output two pickled files. The program will output indianSegments.pickle and indianSpectrograms.pickle. These pickle files will allow the program to run significantly faster after the first run. 
 
