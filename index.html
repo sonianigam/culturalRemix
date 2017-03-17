@@ -25,14 +25,14 @@
 
       <h2><a id="user-content-header-2" class="anchor" href="#header-2" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color= '#C05A38' >Overview</font></h2>
 
-      <p>Cultural Remix focuses on transforming hip-hop songs by incorporating prominent elements of South Asian music.  The program analyzes a hip hop song’s percussive composition, and then determines a compatible South Asian background to overlay its original harmonics.  The goal is to create a desirable remix by meshing the art of two cultures. </p>
+      <p>Cultural Remix focuses on transforming hip-hop songs by incorporating prominent elements of South Asian music.  The program analyzes a hip-hop song’s percussive composition and then determines a compatible South Asian background to overlay its original harmonics.  The goal is to create a desirable remix by meshing the art of two cultures. </p>
 
       <h2><a id="user-content-header-2" class="anchor" href="#header-2" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color= '#C05A38' >Motivation</font></h2>
 
-      <p>Within the last two decades, South Asian music has greatly influenced leading artists in the American hip-hop genre.  Rappers such as Jay-Z and Missy Elliot have notably utilized Hindi film music and Punjabi bhangra to enhance their art, and create transnational pieces.  Numerous scholars have studied this phenomenon, and examined the implications of combining music from a conservative Indian culture with unorthodox and potentially controversial lyrics.  While many expected a tense backlash towards this movement, instead numerous Indians have expressed explicit support for these remixes, and appreciate the increased exposure their culture is receiving within American mainstream media.  As such, we thought it would be interesting to explore the intricacies of creating a cultural mashup and contribute to this niche genre.</p>
+      <p>Within the last two decades, South Asian music has greatly influenced leading artists in the American hip-hop genre.  Rappers such as Jay-Z and Missy Elliot have notably utilized Hindi film music and Punjabi bhangra to enhance their art, and create transnational pieces.  Numerous scholars have studied this phenomenon and examined the implications of combining music from a conservative Indian culture with unorthodox and potentially controversial lyrics.  While many expected a tense backlash towards this movement, instead numerous Indians have expressed explicit support for these remixes, and appreciate the increased exposure their culture is receiving within American mainstream media.  As such, we thought it would be interesting to explore the intricacies of creating a cultural mashup and contribute to this niche genre.</p>
 
       <blockquote>
-      <p>Jay Z: <a href="https://soundcloud.com/dharma-panjabi-mc/14-mundian-to-back-ke-jay-z-remix-beware-of-the-boys">Beware of the Boys</a></p>
+      <p>Jay-Z: <a href="https://soundcloud.com/dharma-panjabi-mc/14-mundian-to-back-ke-jay-z-remix-beware-of-the-boys">Beware of the Boys</a></p>
 
       <p>Missy Elliot: <a href="https://www.youtube.com/watch?v=hh50rLZjrLo">Get Ur Freak On</a></p>
 
@@ -43,6 +43,8 @@
       <p>Cultural Remix utilizes a set of handpicked Indian beats.  There are 24 songs within the data set that produce 104 distinct beat segments, ranging from traditional Hindi film music to upbeat, modern bhangra.  We would like to thank <a href="https://www.facebook.com/officialvgo">Vissagan Gopalakrishnan (VGo)</a> for contributing several instrumentals to this project.</p>
 
       <p>To build our dataset, we pulled different beats from a wide variety of online resources, including YouTube, SoundCloud, and Audiomack. We wanted to ensure that we were accumulating beats that were in the scope of our project, but were not all traditional bhangra beats. In order to do this, we pulled instrumentals of popular Indian songs and broke down their beats into several tracks (see segmentation in methodology). Given this automated process, we can take any instrumental and add its beat segments into our dataset.</p>
+
+      <p> You can find our folder of Indian beats here: <a href="https://www.dropbox.com/s/gw07q13j8p5qqg8/BeatsDatabase.zip?dl=0">Indian Beats Database</a>. </p>
 
 
       <h1><a id="user-content-header-1" class="anchor" href="#header-1" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color= '#C05A38' >Methodology</font></h1>
@@ -61,7 +63,7 @@
 
       <h3><a id="user-content-header-1" class="anchor" href="#header-1" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color= '#C05A38' >Music Samples</font></h3>
 
-      <p>We then compute the beat indices that correlate to the calculated time indices, and grab the corresponding beat segments as determined by Librosa's <a href="https://librosa.github.io/librosa/generated/librosa.beat.beat_track.html">beat tracker</a>.  Using these, we extract and pickle the segmented music samples. </p>
+      <p>We then compute the beat indices that correlate to the calculated time indices and grab the corresponding beat segments as determined by Librosa's <a href="https://librosa.github.io/librosa/generated/librosa.beat.beat_track.html">beat tracker</a>.  Using these, we extract and pickle the segmented music samples. </p>
 
       <h2><a id="user-content-header-1" class="anchor" href="#header-1" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color= '#C05A38' >3. Determining Similarity</font></h2>
 
@@ -81,7 +83,7 @@
 
       <h4><a id="user-content-header-1" class="anchor" href="#header-1" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color= '#C05A38' >Cross Similarity Matrix</font></h4>
 
-      <p>We first attempted segment-wise comparison by calculating the cross-similarity matrix for each pair of segments.  We summed the trace of each given cross-similarity matrix, using this value as the base of our similarity measure. We then looked to maximize the sum of the trace, and selected the Indian segment that produced a cross-similarity matrix with the greatest summed trace value.  However, because the segments are at varying tempos, the diagonal trace was not necessarily the point of greatest similarity (depicted below).  As such, this similarity measure was not suitable for cross comparison given our data. </p>
+      <p>We first attempted segment-wise comparison by calculating the cross-similarity matrix for each pair of segments.  We summed the trace of each given cross-similarity matrix, using this value as the base of our similarity measure. We then looked to maximize the sum of the trace and selected the Indian segment that produced a cross-similarity matrix with the greatest summed trace value.  However, because the segments are at varying tempos, the diagonal trace was not necessarily the point of greatest similarity (depicted below).  As such, this similarity measure was not suitable for cross comparison given our data. </p>
       <p style="text-align:center"><img src="images/csm.png" width="350" height="350px"/></p>
 
       <h4><a id="user-content-header-1" class="anchor" href="#header-1" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color= '#C05A38' >Fast DTW</font></h4>
@@ -94,7 +96,7 @@
 
       <h3><a id="user-content-header-1" class="anchor" href="#header-1" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color= '#C05A38' >Time Stretching and Alignment</font></h3>
 
-      <p> Because the selected Indian segments do not necessarily match the length of the corresponding hip-hop segments, our program extends/trims the Indian segements accordingly.  After doing so, the segments are concatenated to create a continuous background, aligned time-wise with the original song.
+      <p> Because the selected Indian segments do not necessarily match the length of the corresponding hip-hop segments, our program extends/trims the Indian segments accordingly.  After doing so, the segments are concatenated to create a continuous background, aligned time-wise with the original song.
 
 
       <h3><a id="user-content-header-1" class="anchor" href="#header-1" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color= '#C05A38' >Overlaying the Harmonics</font></h3>
@@ -103,7 +105,9 @@
 
       <h1><a id="user-content-header-1" class="anchor" href="#header-1" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color= '#C05A38' >Results</font></h1>
 
-      <p> The following audio files are a few examples of our program's output.  You can find more results in our folder <a href="#">Cultural Remix</a>. </p>
+      <p> The following audio files are a few examples of our program's output. </p>
+
+
 
        <blockquote>
 
@@ -134,7 +138,7 @@
      
 
       <h1><a id="user-content-header-1" class="anchor" href="#header-1" aria-hidden="true"><span class="octicon octicon-link"></span></a><font color= '#C05A38' >Improvements</font></h1>
-      <p>In the future, we could make several improvements to better our program. The first step we would take is refining our program's vocal extraction. Currently, modern day DJs use Audacity's built-in function to separate a song's vocals from the background. Unfortunately, Audacity has not released a Python library or extension, such that we cannot utilize this functionality. In Python, we tried both Repet and harmonic/percussive separation.  We found harmonic/percussive separation to produce slightly clearer results, but ultimately is still far away from Audacity's quality. To combat this, we could restructure Cultural Remix such that the user must input 2 files, the vocals and the instrumentals. Another solution is deriving a completely new algorithm that splits vocals from a song's instrumentals, though we recognize this an extremely difficult computational problem.</p>
+      <p>In the future, we could make several improvements to better our program. The first step we would take is refining our program's vocal extraction. Currently, modern day DJs use Audacity's built-in function to separate a song's vocals from the background. Unfortunately, Audacity has not released a Python library or extension, such that we cannot utilize this functionality. In Python, we tried both Repet and harmonic/percussive separation.  We found harmonic/percussive separation to produce slightly clearer results but ultimately is still far away from Audacity's quality. To combat this, we could restructure Cultural Remix such that the user must input 2 files, the vocals, and the instrumentals. Another solution is deriving a completely new algorithm that splits vocals from a song's instrumentals, though we recognize this an extremely difficult computational problem.</p>
 
       <p>The next step would be developing a front-end interface. Currently, Cultural Remix is a Jupyter program, but it would be better to develop an intuitive, web interface to better user experience. </p>
 
@@ -145,7 +149,7 @@
 
       <p>In conclusion, Cultural Remix successfully produces an Indian version of any inputted song. The program can split the harmonic and percussive elements of the song, segment it based on beat structures, overlay similar Indian beats onto the harmonic element of the song, and output a South Asian remix. In order to measure the success of our program, we surveyed random people at Northwestern who traditionally listen to Indian remixes. The biggest point of feedback was audio quality, specifically the quality of the vocals. After explaining our vision for improvement - as specified above - 80% of users claimed that certain parts of our remixes were comparable to current DJ material.</p>
       
-      <p>Furthermore, we approached the captains of a few dance teams on campus to determine if they would use our program to test different mixes for their shows - there was an unanimous yes across the board. They claimed that if the vocal quality was improved, our program would give them a clear picture of what an indian remix of a given song would sound like before requesting the song sample from their DJ. This would save them time in communicating with the DJ and effort in actually creating a mix. </p>
+      <p>Furthermore, we approached the captains of a few dance teams on campus to determine if they would use our program to test different mixes for their shows - there was a unanimous yes across the board. They claimed that if the vocal quality was improved, our program would give them a clear picture of what an Indian remix of a given song would sound like before requesting the song sample from their DJ. This would save them time in communicating with the DJ and effort in actually creating a mix. </p>
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/sonianigam/culturalRemix">Cultural Remix</a> is maintained by <a href="https://github.com/sonianigam">sonianigam</a> and <a href="https://github.com/amartshah">amartshah</a>.</span>
         <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
