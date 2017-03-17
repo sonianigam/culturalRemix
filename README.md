@@ -3,7 +3,7 @@ EECS 352 Final Project
 Created by: Sonia Nigam and Amar Shah
 
 ## Installing
-The following dependencies need to be installed via command line to run our script.
+The following dependencies need to be installed via command line to run our script.<br />
 MSAF <br />
 pickle <br />
 librosa <br />
