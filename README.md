@@ -2,7 +2,9 @@
 EECS 352 Final Project
 Created by: Sonia Nigam and Amar Shah
 
-##Installing
+## installing
+
+<!-- ##Installing
 The following dependencies need to be installed via command line to run our script.
 MSAF <br />
 pickle <br />
@@ -28,5 +30,5 @@ The program will output a final indian remix of the inputted song. The user has 
 
 The program will output the percussive element of the song titled "percussive_song.mp3" in the culturalRemix Folder
 
-Lastly, when running the program the first time, the program will output two pickled files. The program will output indianSegments.pickle and indianSpectrograms.pickle. These pickle files will allow the program to run significantly faster after the first run. 
+Lastly, when running the program the first time, the program will output two pickled files. The program will output indianSegments.pickle and indianSpectrograms.pickle. These pickle files will allow the program to run significantly faster after the first run.  -->
 
