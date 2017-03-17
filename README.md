@@ -11,11 +11,10 @@ scipy <br />
 fastdtw <br />
 sklearn <br />
 
-
 ##Run 
 jupyter notebook culturalRemix.ipynb
 
-###File Hierarchy
+##File Hierarchy
 This script runs under the assumption that the user has installed all the packages above. In addition the link below allows the user to download our Indian Beats Database. The user can have their own Beats Database, but for the program to run, their must be a folder called "BeatsDatabase" with all of the indian beats in it. 
 
 Furthermore, the user must have a folder called "HipHop" containing any song they would like to obtain a cultural remix of. 
